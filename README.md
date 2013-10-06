@@ -4,7 +4,7 @@ surferpedia
 
 Overview
 ------------
-A [Play application](http://www.playframework.com/) of surfer encyvlopedia.
+A [Play application](http://www.playframework.com/) of surfer encyclopedia.
 
 
 Installation
