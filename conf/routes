@@ -9,6 +9,8 @@ GET     /carissa                    controllers.Application.carissa()
 GET     /jake                       controllers.Application.jake()
 GET     /mick                       controllers.Application.mick()
 GET     /kanoa                      controllers.Application.kanoa()
+GET     /Megan                      controllers.Application.Megan()
+
 
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.at(path="/public", file)

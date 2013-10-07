@@ -8,6 +8,7 @@ import views.html.carissa;
 import views.html.jake;
 import views.html.mick;
 import views.html.Kanoa;
+import views.html.Megan;
 
 /**
  * Implements the controllers for this application.
@@ -62,5 +63,10 @@ public class Application extends Controller {
    */
   public static Result kanoa() {
     return ok(Kanoa.render("Welcome to Kanoa's page."));
+  }
+  
+  public static Result Megan() {
+    return ok(Megan.render(""));
+    
   }
 }
