@@ -1,74 +1,79 @@
 body {
-
-}
-.header{
-background:url('../images/header.jpg');
-background-size: cover;
-background-position: center;
-height: 200px;
-  
-}
-.carousel-1{
-background:url('../images/mick.jpg');
-background-size: cover;
-background-position: center;
-height: 400px;
-}
-
-.carousel-2{
-background:url('../images/carissa.jpg');
-background-size: cover;
-background-position: center;
-height: 400px;
-}
-.carousel-3{
-background:url('../images/jake.jpg');
-background-size: cover;
-background-position: center;
-height: 500px;
-}
-
-.carousel-4{
-background:url('../images/kanoa-igarashi.jpg');
-background-size: cover;
-background-position: center;
-height: 500px;
-}
-
-h3{
-  font-color:black;
-}
-
-.carissa-pic{
-  background:url('../images/carissa.jpg');
-background-size: cover;
-background-position: center;
-height: 400px;
   
 }
 
-.jake-pic{
-  background:url('../images/jake.jpg');
-background-size: cover;
-background-position: center;
-height: 400px;
-  
+.header {
+  background: url('../images/header.jpg');
+  background-size: cover;
+  background-position: center;
+  height: 200px;
 }
 
-.mick-pic{
-  background:url('../images/mick.jpg');
-background-size: cover;
-background-position: center;
-height: 400px;
-  
+.carousel-1 {
+  background: url('../images/mick.jpg');
+  background-size: cover;
+  background-position: center;
+  height: 400px;
 }
 
-.kanoa-img{
-  background:url('../images/kanoa-igarashi.jpg');
-background-size: cover;
-background-position: center;
-height: 400px;
-  
+.carousel-2 {
+  background: url('../images/carissa.jpg');
+  background-size: cover;
+  background-position: center;
+  height: 400px;
+}
+
+.carousel-3 {
+  background: url('../images/jake.jpg');
+  background-size: cover;
+  background-position: center;
+  height: 500px;
+}
+
+.carousel-4 {
+  background: url('../images/kanoa-igarashi.jpg');
+  background-size: cover;
+  background-position: center;
+  height: 500px;
+}
+
+.carousel-6 {
+  background: url('../images/jeff-hakman.jpg');
+  background-size: cover;
+  background-position: center;
+  height: 500px;
+}
+
+h3 {
+  font-color: black;
+}
+
+.carissa-pic {
+  background: url('../images/carissa.jpg');
+  background-size: cover;
+  background-position: center;
+  height: 400px;
+}
+
+.jake-pic {
+  background: url('../images/jake.jpg');
+  background-size: cover;
+  background-position: center;
+  height: 400px;
+}
+
+.mick-pic {
+  background: url('../images/mick.jpg');
+  background-size: cover;
+  background-position: center;
+  height: 400px;
+}
+
+.kanoa-img {
+  background: url('../images/kanoa-igarashi.jpg');
+  background-size: cover;
+  background-position: center;
+  height: 400px;
 }
 
 .megan {
@@ -76,11 +81,16 @@ height: 400px;
   background-size: cover;
   background-position: center;
   height: 500px;
-  
 }
 
+.jeff-img {
+  background: url('../images/jeff-hakman.jpg');
+  background-size: cover;
+  background-position: center;
+  height: 400px;
+}
 
-h1{
+h1 {
   font-size: 16px;
   font-style: strong;
 }
