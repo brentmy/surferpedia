@@ -1,0 +1,58 @@
+@(surferForm: Form[views.formdata.SurferFormData], surferTypeMap: Map[String, Boolean], disableSlug: Boolean)
+
+@import helper._
+@import bootstrap3._
+
+@Main("managesurfer") {
+<div class="container">
+  @form(routes.Application.postSurfer(), 'class -> "form-horizontal") {
+  
+    @text(surferForm("name"),
+          label = "Name",
+          placeholder = "First Last",
+          help = "Enter the name of the surfer.")
+    
+    @text(surferForm("home"),
+          label = "Home",
+          placeholder = "Town, Country/State",
+          help = "The surfer's home town.")
+      
+    @text(surferForm("awards"),
+          label = "Awards",
+          placeholder = "AWS Championship.",
+          help = "Optional: List of titles and surfing awards.")
+    
+    @text(surferForm("carouselURL"),
+          label = "Carousel URL",
+          placeholder = "http://pictures.com/picture.jpg",
+          help = "A URL to a picture if the surfer.")
+    
+    @text(surferForm("bioURL"),
+          label = "Bio URL",
+          placeholder = "http://pictures.com/picture.jpg",
+          help = "A URL to the picture to be used in the bio page.")
+    
+    @bootstrap3.textarea(surferForm("bio"),
+            rows = "10",
+            label = "Bio",
+            placeholder = "Bio paragraph.",
+            help = "Paragraph describing the surfer.")
+           
+    @slug(surferForm("slug"),
+          label = "Slug",
+          placeholder = "jakemarshall",
+          help = "Used to identify the surfers in URLs; i.e. http://surferpedia.com/surfer/jakemarshall",
+          disabled = disableSlug)
+          
+    @bootstrap3.select(surferForm("type"),
+            label = "Type",
+            optionMap = surferTypeMap,
+            isMultiple = false)
+    
+    <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+    </div>
+  }
+</div>

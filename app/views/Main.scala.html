@@ -36,21 +36,34 @@
           <li class="dropdown">
            <a class="dropdown-toggle" data-toggle="dropdown" href="#">Males <b class="caret"></b></a>
            <ul class="dropdown-menu" role="menu">
-           <li><a href="@routes.Application.mick()">Mick Fanning</a></li>
+            @for(surfer <- SurferDB.getSurfers()) {
+            @if(surfer.getType() == "Male") {
+            <li><a href="@routes.Application.getSurfer(surfer.getSlug())">@surfer.getName()</a></li>
+                }
+             }
            </ul>
-            
+            </li>
             <li class="dropdown">
            <a class="dropdown-toggle" data-toggle="dropdown" href="#">Females <b class="caret"></b></a>
            <ul class="dropdown-menu" role="menu">
-           <li><a href="@routes.Application.carissa()">Carissa Moore</a></li>
-           </ul>
-           
+             @for(surfer <- SurferDB.getSurfers()) {
+             @if(surfer.getType() == "Female") {
+             <li><a href="@routes.Application.getSurfer(surfer.getSlug())">@surfer.getName()</a></li>
+                 }
+              }          
+             </ul>
+           </li>
            <li class="dropdown">
            <a class="dropdown-toggle" data-toggle="dropdown" href="#">Groms <b class="caret"></b></a>
            <ul class="dropdown-menu" role="menu">
-           <li><a href="@routes.Application.jake()">Jake Marshall</a></li>
-           <li><a href="@routes.Application.kanoa()">Kanoa Igarashi</a></li>
+            @for(surfer <- SurferDB.getSurfers()) {
+            @if(surfer.getType() == "Grom") {
+            <li><a href="@routes.Application.getSurfer(surfer.getSlug())">@surfer.getName()</a></li>
+                }
+              }
            </ul>
+           </li>
+           <li><a href="@routes.Application.newSurfer()">New Surfer</a></li>
         </ul>
      </div>
     </div>

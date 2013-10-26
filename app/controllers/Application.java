@@ -1,13 +1,15 @@
 package controllers;
 
+import java.util.Map;
+import models.SurferDB;
 import play.mvc.Controller;
+import play.data.Form;
 import play.mvc.Result;
 import views.html.Index;
-import views.html.Page1;
-import views.html.carissa;
-import views.html.jake;
-import views.html.mick;
-import views.html.Kanoa;
+import views.formdata.SurferFormData;
+import views.formdata.SurferTypes;
+import views.html.ManageSurfer;
+import views.formdata.SurferFormData;
 
 /**
  * Implements the controllers for this application.
@@ -19,48 +21,40 @@ public class Application extends Controller {
    * @return The resulting home page. 
    */
   public static Result index() {
-    return ok(Index.render("Welcome to the home page."));
+    return ok(Index.render(SurferDB.getSurfers()));
   }
   
   /**
-   * Returns page1, a simple example of a second page to illustrate navigation.
-   * @return The Page1.
+   * Returns new contact form simple form.
+   * @param id s.
+   * @return The new Contact form.
    */
-  public static Result page1() {
-    return ok(Page1.render("Welcome to Page1."));
+  public static Result newSurfer(long id) {
+    SurferFormData form = id == 0 ? new SurferFormData() : new SurferFormData(SurferDB.getSurfer(id)); 
+    Form<SurferFormData> formData = Form.form(SurferFormData.class).fill(form);
+    Map<String, Boolean> surferTypeMap = SurferTypes.getTypes(form.surfType);
+    return ok(ManageSurfer.render(formData, surferTypeMap));
     
   }
   
   /**
-   * Returns page1, a simple example of a second page to illustrate navigation.
-   * @return The Page1.
+   * Handles the posting of data.
+   * @return sadas.
    */
-  public static Result carissa() {
-    return ok(carissa.render("Welcome to Page1."));
+  public static Result postContact() {
+    Form<SurferFormData> formData = Form.form(SurferFormData.class).bindFromRequest();
     
-  }
-  
-  /**
-   * Returns page1, a simple example of a second page to illustrate navigation.
-   * @return The Page1.
-   */
-  public static Result jake() {
-    return ok(jake.render("Welcome to Page1."));
+    if (formData.hasErrors()) {
+      System.out.println("Errors");
+      Map<String, Boolean> telephoneTypeMap = SurferTypes.types();
+      return badRequest(ManageSurfer.render(formData, telephoneTypeMap));
+    }
     
-  }
-  /**
-   * Returns page1, a simple example of a second page to illustrate navigation.
-   * @return The Page1.
-   */
-  public static Result mick() {
-    return ok(mick.render("Welcome to Page1."));
-  }
-  
-  /**
-   * Returns page1, a simple example of a second page to illustrate navigation.
-   * @return The Page1.
-   */
-  public static Result kanoa() {
-    return ok(Kanoa.render("Welcome to Kanoa's page."));
+    else {
+    SurferFormData data = formData.get();
+    SurferDB.addSurfer(data);
+    Map<String, Boolean> telephoneTypeMap = SurferTypes.getTypes(data.surfType);
+        return ok(ManageSurfer.render(formData, telephoneTypeMap));
+    }
   }
 }

@@ -1,45 +1,26 @@
 @(message: String) @Main("Home") {
-<div id="carousel-example-generic" class="carousel slide">
-  <!-- Indicators -->
-  <ol class="carousel-indicators">
-    <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-    <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-    <li data-target="#carousel-example-generic" data-slide-to="2"></li>
-    <li data-target="#carousel-example-generic" data-slide-to="3"></li>
-  </ol>
+<div id="carousel-example-generic" class="carousel slide"
+  data-ride="carousel">
+                <!-- Indicators -->
+                <ol class="carousel-indicators">
+                        @for((surfer, index) <- SurferDB.getSurfers().view.zipWithIndex) {
+                        <li data-target="#carousel-example-generic" data-slide-to="@index"
+                                @if(index== 0) {class="active"}></li>
+                        }
+                </ol>
 
-  <!-- Wrapper for slides -->
-  <div class="carousel-inner">
-    <div class="item active">
-      <div class="carousel-1"></div>
-      <div class="carousel-caption">
-        <h3>Mick Fanning</h3>
-      </div>
-    </div>
-    <div class="item">
-      <div class="carousel-2"></div>
-      <div class="carousel-caption">
-        <h3>Carissa Moore</h3>
-      </div>
-    </div>
-    
-    <div class="item">
-      <div class="carousel-3"></div>
-      <div class="carousel-caption">
-        <h3>Jake Marshall</h3>
-      </div>
-    </div>
-    
-    <div class="item">
-      <div class="carousel-4"></div>
-      <div class="carousel-caption">
-        <h3>Kanoa Igarashi</h3>
-      </div>
-    </div>
-    
-    
-  </div>
- 
+                <!-- Wrapper for slides -->
+                <div class="carousel-inner">
+                        @for((surfer, index) <-SurferDB.getSurfers().view.zipWithIndex) {
+                        <div @if(index== 0) {class="item active" } else {class="item"}>
+                                <div class="carousel-image"
+                                        style="background-image: url('@surfer.getCarouselURL');"></div>
+                                <div class="carousel-caption">
+                                        <h3>@surfer.getName()</h3>
+                                </div>
+                        </div>
+                        }
+                </div>
 
   
   <!-- Controls -->
