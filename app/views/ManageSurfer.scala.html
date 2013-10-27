@@ -7,7 +7,7 @@
 <div class="container">
   @form(routes.Application.postSurfer(), 'class -> "form-horizontal") {
   
-    @text(surferForm("name"),
+    @text(surferForm("surferName"),
           label = "Name",
           placeholder = "First Last",
           help = "Enter the name of the surfer.")
@@ -22,12 +22,12 @@
           placeholder = "AWS Championship.",
           help = "Optional: List of titles and surfing awards.")
     
-    @text(surferForm("carouselURL"),
+    @text(surferForm("carouselUrl"),
           label = "Carousel URL",
           placeholder = "http://pictures.com/picture.jpg",
           help = "A URL to a picture if the surfer.")
     
-    @text(surferForm("bioURL"),
+    @text(surferForm("bioUrl"),
           label = "Bio URL",
           placeholder = "http://pictures.com/picture.jpg",
           help = "A URL to the picture to be used in the bio page.")
@@ -44,10 +44,11 @@
           help = "Used to identify the surfers in URLs; i.e. http://surferpedia.com/surfer/jakemarshall",
           disabled = disableSlug)
           
-    @bootstrap3.select(surferForm("type"),
+    @bootstrap3.select(surferForm("surfType"),
             label = "Type",
             optionMap = surferTypeMap,
-            isMultiple = false)
+            isMultiple = false,
+            help = "The type of surfer for placement in the menu.")
     
     <div class="form-group">
         <div class="col-sm-offset-2 col-sm-10">
@@ -56,3 +57,4 @@
     </div>
   }
 </div>
+}

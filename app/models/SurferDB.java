@@ -20,20 +20,9 @@ public class SurferDB {
   * @return contact
   */
 public static Surfer addSurfer(SurferFormData formData) {
-  Surfer surfer;
-  /* long iD2 = (formData.id == 0) ? surfers.size() + 1 : formData.id;// clean entry
-  Contact contact = new Contact(iD2, formData.firstName, formData.lastName, formData.telephone);
-  surfers.put(iD2, contact);*/
-  if (formData.slug == null) {
-    String slug=formData.slug;
-    surfer = new Surfer(formData.surferName, formData.home, formData.carousel, formData.bioUrl, formData.bio, formData.slug, formData.surfType);
-    surfers.put(slug, surfer);
-  }
-  else {
-    surfer = new Surfer(formData.surferName, formData.home, formData.carousel, formData.bioUrl, formData.bio, formData.slug, formData.surfType);
-    surfers.put(formData.slug, surfer);
-  }
-  
+  Surfer surfer = new Surfer(formData.surferName, formData.home, formData.awards, formData.carousel,
+      formData.bioUrl, formData.bio, formData.slug, formData.surfType);
+  surfers.put(formData.slug, surfer);
   return surfer;
    }
 /**

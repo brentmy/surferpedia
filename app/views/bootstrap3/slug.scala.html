@@ -1,14 +1,16 @@
-# Routes
-# This file defines all application routes (Higher priority routes first)
-# ~~~~
- 
-# Home page
-GET     /                           controllers.Application.index()
-GET     /new                        controllers.Application.newSurfer()
-GET     /surfer/:slug               controllers.Application.getSurfer(slug)
-GET     /surfer/:slug/delete        controllers.Application.deleteSurfer(slug)
-GET     /surfer/:slug/edit          controllers.Application.manageSurfer(slug)
-POST    /post                       controllers.Application.postSurfer()
- 
-# Map static resources from the /public folder to the /assets URL path
-GET     /assets/*file               controllers.Assets.at(path="/public", file)
+@(field: Field, label:String, placeholder:String, help:String, disabled: Boolean)
+
+  <div class="form-group @if(field.hasErrors) {has-error}">
+    <label class="col-sm-2 control-label">@label</label>
+    <div class="col-sm-10">
+      <input type="text"
+             class="form-control"
+             id="@field.id"
+             name="@field.name"
+             value="@field.value.getOrElse("")"
+             placeholder="@placeholder"
+             @if(disabled) {readonly}/>
+      <span class="help-block">@help</span>
+      <span class="help-block">@{field.error.map { error => error.message }}</span>
+    </div>
+  </div>

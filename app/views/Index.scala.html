@@ -14,9 +14,9 @@
                         @for((surfer, index) <-SurferDB.getSurfers().view.zipWithIndex) {
                         <div @if(index== 0) {class="item active" } else {class="item"}>
                                 <div class="carousel-image"
-                                        style="background-image: url('@surfer.getCarouselURL');"></div>
+                                        style="background-image: url('@surfer.getCarouselUrl');"></div>
                                 <div class="carousel-caption">
-                                        <h3>@surfer.getName()</h3>
+                                        <h3>@surfer.getSurferName()</h3>
                                 </div>
                         </div>
                         }

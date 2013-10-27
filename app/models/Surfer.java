@@ -3,6 +3,7 @@ package models;
 public class Surfer {
     private String surferName;
     private String home;
+    private String awards;
     private String carouselUrl;
     private String bioUrl;
     private String bio;
@@ -18,9 +19,10 @@ public class Surfer {
      * @param bioUrl the carouselUrl.
      * 
      * */
-    public Surfer(String surferName, String home, String carouselUrl, String bioUrl, String bio, String slug, String type) {
+    public Surfer(String surferName, String home, String awards, String carouselUrl, String bioUrl, String bio, String slug, String type) {
       this.surferName = surferName;
       this.home = home;
+      this.awards= awards;
       this.carouselUrl = carouselUrl;
       this.bioUrl = bioUrl;
       this.bio = bio;
@@ -117,6 +119,18 @@ public class Surfer {
      */
     public void setType(String type) {
       this.type = type;
+    }
+    /**
+     * @return the awards
+     */
+    public String getAwards() {
+      return awards;
+    }
+    /**
+     * @param awards the awards to set
+     */
+    public void setAwards(String awards) {
+      this.awards = awards;
     }
 
 

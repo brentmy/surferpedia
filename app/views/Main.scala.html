@@ -38,7 +38,7 @@
            <ul class="dropdown-menu" role="menu">
             @for(surfer <- SurferDB.getSurfers()) {
             @if(surfer.getType() == "Male") {
-            <li><a href="@routes.Application.getSurfer(surfer.getSlug())">@surfer.getName()</a></li>
+            <li><a href="@routes.Application.getSurfer(surfer.getSlug())">@surfer.getSurferName()</a></li>
                 }
              }
            </ul>
@@ -48,7 +48,7 @@
            <ul class="dropdown-menu" role="menu">
              @for(surfer <- SurferDB.getSurfers()) {
              @if(surfer.getType() == "Female") {
-             <li><a href="@routes.Application.getSurfer(surfer.getSlug())">@surfer.getName()</a></li>
+             <li><a href="@routes.Application.getSurfer(surfer.getSlug())">@surfer.getSurferName()</a></li>
                  }
               }          
              </ul>
@@ -58,7 +58,7 @@
            <ul class="dropdown-menu" role="menu">
             @for(surfer <- SurferDB.getSurfers()) {
             @if(surfer.getType() == "Grom") {
-            <li><a href="@routes.Application.getSurfer(surfer.getSlug())">@surfer.getName()</a></li>
+            <li><a href="@routes.Application.getSurfer(surfer.getSlug())">@surfer.getSurferName()</a></li>
                 }
               }
            </ul>
