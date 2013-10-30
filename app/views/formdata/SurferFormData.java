@@ -30,6 +30,7 @@ public String bio = "";
 public String slug = "";
 /** type Type. */
 public String surfType = "";
+public String level = "";
 
 /**
  * Empty constructor.
@@ -50,6 +51,7 @@ public SurferFormData(String surferName, String awards, String home, String caro
   this.surferName = surferName;
   this.home = home;
   this.awards = awards;
+  this.level = level;
   this.carousel = carousel;
   this.bioUrl = bioUrl;
   this.bio = bio;
@@ -67,6 +69,7 @@ public SurferFormData(Surfer surfer) {
   this.surferName = surfer.getSurferName();
   this.home = surfer.getHome();
   this.awards = surfer.getAwards();
+  this.level = surfer.getLevel();
   this.carousel = surfer.getCarouselUrl();
   this.bioUrl = surfer.getBioUrl();
   this.bio = surfer.getBio();

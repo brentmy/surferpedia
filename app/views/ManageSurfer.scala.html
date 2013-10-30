@@ -1,4 +1,4 @@
-@(surferForm: Form[views.formdata.SurferFormData], surferTypeMap: Map[String, Boolean], disableSlug: Boolean)
+@(surferForm: Form[views.formdata.SurferFormData], surferTypeMap: Map[String, Boolean], disableSlug: Boolean, level : List[String])
 
 @import helper._
 @import bootstrap3._
@@ -21,6 +21,11 @@
           label = "Awards",
           placeholder = "AWS Championship.",
           help = "Optional: List of titles and surfing awards.")
+          
+    @radiobuttons(surferForm("level"),
+          label = "Level",
+          buttonNameList = level,
+          help = "")
     
     @text(surferForm("carouselUrl"),
           label = "Carousel URL",
