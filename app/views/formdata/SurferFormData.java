@@ -103,9 +103,7 @@ public List<ValidationError> validate() {
     errors.add(new ValidationError("slug", "slug is required"));
    }
   
-  if (SurferDB.getSurfer(slug) != null) {
-    errors.add(new ValidationError("slug", "slug is already taken"));
-   }
+
   if (!SurferTypes.isType(surfType)) {
     errors.add(new ValidationError("surfType", "Invalid surfer Type"));
    }

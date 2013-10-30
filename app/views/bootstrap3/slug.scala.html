@@ -9,7 +9,7 @@
              name="@field.name"
              value="@field.value.getOrElse("")"
              placeholder="@placeholder"
-             @if(disabled) {readonly}/>
+             @if(disabled) {disabled}/>
       <span class="help-block">@help</span>
       <span class="help-block">@{field.error.map { error => error.message }}</span>
     </div>

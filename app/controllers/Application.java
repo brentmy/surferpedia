@@ -33,8 +33,8 @@ public class Application extends Controller {
   public static Result newSurfer() {
     SurferFormData data = new SurferFormData();
     Form<SurferFormData> formData = Form.form(SurferFormData.class).fill(data);
-    Map<String, Boolean> surferTypeMap = SurferTypes.getTypes(data.surfType);
-    return ok(ManageSurfer.render(formData, surferTypeMap, false));
+    Map<String, Boolean> surferTypeMap = SurferTypes.types();
+    return ok(ManageSurfer.render(formData, surferTypeMap,false));
     
   }
   
@@ -53,8 +53,8 @@ public class Application extends Controller {
     
     else {
     SurferFormData data = formData.get();
+    Map<String, Boolean> surfTypeMap = SurferTypes.getTypes(data.surfType);
     SurferDB.addSurfer(data);
-    Map<String, Boolean> telephoneTypeMap = SurferTypes.getTypes(data.surfType);
         return ok(ShowSurfer.render(formData));
     }
   }
@@ -71,6 +71,7 @@ public class Application extends Controller {
   
   public static Result manageSurfer(String slug) {
     SurferFormData data = new SurferFormData(SurferDB.getSurfer(slug));
+   
     Form<SurferFormData> formData = Form.form(SurferFormData.class).fill(data);
     Map<String, Boolean> surferTypeMap = SurferTypes.getTypes(data.surfType);
     return ok(ManageSurfer.render(formData, surferTypeMap, true));
