@@ -15,6 +15,7 @@
                         <h2>@surferForm("surferName").value</h2>
                         <p><b>Home Town: </b>@surferForm("home").value</p>
                         <p><b>Awards: </b>@surferForm("awards").value</p>
+                        <p><b>Style: </b>@surferForm("footStyles").value</p>
                         <p><b>Biography: </b>@surferForm("bio").value</p>
                         <a class="btn btn-xs" href="@routes.Application.manageSurfer(surferForm("slug").value)">Edit</a>
                         <a class="btn btn-xs" href="@routes.Application.deleteSurfer(surferForm("slug").value)">Delete</a>

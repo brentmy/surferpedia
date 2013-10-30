@@ -43,17 +43,17 @@ public class Global extends GlobalSettings {
                    + "2010, Moore was incepted into the ASP Women World Tour. During her first year on the Tour Moore won both the TSB Bank Women Surf Festival[13][14] and Rip Curl Pro Portugal.[15] Moore 2010 Women World Tour Ranking was 3rd overall.[16] and she was awarded the ASP Women World Tour Rookie of the Year.[17]"
                    + "Refer to ASP Wildcard Entries section for further information relating Moore's involvement prior to being incepted into the ASP Women World Tour.";
     
-    SurferDB.addSurfer(new SurferFormData("Mick Fanning", "2 times ASP World Champion 2007, 2009", "Penrith, New South Wales, Australia",
+    SurferDB.addSurfer(new SurferFormData("Mick Fanning",  "Penrith, New South Wales, Australia", "2 times ASP World Champion 2007, 2009", "Goofy",
         "http://upload.wikimedia.org/wikipedia/commons/b/b2/Mick_Fanning.jpg",
         "http://old.lostenterprises.com/dev/images/news/Lost_fanning_Large.jpg",
         mick, "mickfanning", "Male"));
     
-    SurferDB.addSurfer(new SurferFormData("Jake Marshall", "Unknown", "Encinitas, CA",
+    SurferDB.addSurfer(new SurferFormData("Jake Marshall",  "Encinitas, CA","Regular", "Unknown",
         "http://www.surfingamerica.org/wp-content/uploads/2011/01/JakeMarshall_MG_3530-3.jpg",
         "http://stwww.surfingmagazine.com/wp-content/blogs.dir/1/files/2011/02/JakeMarshall01-677x442.jpg",
         jake, "jakemarshall", "Grom"));
     
-    SurferDB.addSurfer(new SurferFormData("Carissa Moore", "2013 ASP World Tour", "Honolulu, Hawaii",
+    SurferDB.addSurfer(new SurferFormData("Carissa Moore",  "Honolulu, Hawaii", "2013 ASP World Tour", "Goofy",
         "http://www.lat34.org/quick_hits/wp-content/uploads/2008/11/moore_c1985reefpro08rowland_m.jpg",
         "http://prettytough.com/wp-content/uploads/2008/11/carissa-moore.jpg",
         carissa, "carissamoore", "Female"));

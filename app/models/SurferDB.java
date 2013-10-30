@@ -20,7 +20,7 @@ public class SurferDB {
   * @return contact
   */
 public static Surfer addSurfer(SurferFormData formData) {
-  Surfer surfer = new Surfer(formData.surferName, formData.home, formData.awards, formData.carousel,
+  Surfer surfer = new Surfer(formData.surferName, formData.home, formData.awards, formData.footStyles, formData.carousel,
       formData.bioUrl, formData.bio, formData.slug, formData.surfType);
   surfers.put(formData.slug, surfer);
   return surfer;

@@ -1,4 +1,4 @@
-package models;
+package views.formdata;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -10,10 +10,10 @@ import java.util.List;
  * <ul>
  * <li> The model structure (fields, plus getters and setters).
  * <li> Some methods to facilitate form display and manipulation (getNameList, etc.).
- * <li> Some fields and methods to "fake" a database of GradeLevels.
+ * <li> Some fields and methods to "fake" a database of FootStyleTypess.
  * </ul>
  */
-public class FootStyle {
+public class FootStyleTypes {
   private long id;
   private String name;
 
@@ -22,7 +22,7 @@ public class FootStyle {
    * @param id The id.
    * @param name The name of the grade.
    */
-  public FootStyle(long id, String name) {
+  public FootStyleTypes(long id, String name) {
     this.id = id;
     this.name = name;
   }
@@ -48,17 +48,17 @@ public class FootStyle {
    * @return A list of level names in sorted order.
    */
   public static List<String> getNameList() {
-    String[] nameArray = {"Freshman", "Sophomore", "Junior", "Senior", "N/A"};
+    String[] nameArray = {"Goofy", "Regular"};
     return Arrays.asList(nameArray);
   }
 
   /**
-   * Return the GradeLevel instance in the database with name 'levelName' or null if not found.
+   * Return the FootStyleTypes instance in the database with name 'levelName' or null if not found.
    * @param levelName The Level name.
-   * @return The GradeLevel instance, or null if not found.
+   * @return The FootStyleTypes instance, or null if not found.
    */
-  public static FootStyle findLevel(String levelName) {
-    for (FootStyle level : allLevels) {
+  public static FootStyleTypes findLevel(String levelName) {
+    for (FootStyleTypes level : allLevels) {
       if (levelName.equals(level.getName())) {
         return level;
       }
@@ -70,25 +70,23 @@ public class FootStyle {
    * Provide a default grade level for use in form display.
    * @return The default grade level.
    */
-  public static FootStyle getDefaultLevel() {
-    return findLevel("Freshman");
+  public static FootStyleTypes getDefaultLevel() {
+    return findLevel("Goofy");
   }
 
   @Override
   public String toString() {
-    return String.format("[GradeLevel %s]", this.name);
+    return String.format("[FootStyleTypes %s]", this.name);
   }
 
   /** Fake a database of Grade Levels. */
-  private static List<FootStyle> allLevels = new ArrayList<>();
+  private static List<FootStyleTypes> allLevels = new ArrayList<>();
 
   /** Instantiate the fake database. */
   static {
-    allLevels.add(new FootStyle(1L, "Freshman"));
-    allLevels.add(new FootStyle(2L, "Sophomore"));
-    allLevels.add(new FootStyle(3L, "Junior"));
-    allLevels.add(new FootStyle(4L, "Senior"));
-    allLevels.add(new FootStyle(5L, "Other"));
+    allLevels.add(new FootStyleTypes(1L, "Goofy"));
+    allLevels.add(new FootStyleTypes(2L, "Regular"));
+
   }
 
 

@@ -4,6 +4,7 @@ public class Surfer {
     private String surferName;
     private String home;
     private String awards;
+    private String footStyles;
     private String carouselUrl;
     private String bioUrl;
     private String bio;
@@ -19,10 +20,11 @@ public class Surfer {
      * @param bioUrl the carouselUrl.
      * 
      * */
-    public Surfer(String surferName, String home, String awards, String carouselUrl, String bioUrl, String bio, String slug, String type) {
+    public Surfer(String surferName, String home, String awards, String footStyles, String carouselUrl, String bioUrl, String bio, String slug, String type) {
       this.surferName = surferName;
       this.home = home;
       this.awards= awards;
+      this.setFootStyles(footStyles);
       this.carouselUrl = carouselUrl;
       this.bioUrl = bioUrl;
       this.bio = bio;
@@ -131,6 +133,12 @@ public class Surfer {
      */
     public void setAwards(String awards) {
       this.awards = awards;
+    }
+    public String getFootStyles() {
+      return footStyles;
+    }
+    public void setFootStyles(String footStyles) {
+      this.footStyles = footStyles;
     }
 
 
