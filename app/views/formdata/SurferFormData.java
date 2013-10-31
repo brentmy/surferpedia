@@ -91,9 +91,9 @@ public List<ValidationError> validate() {
   if (home == null || home.length() == 0) {
     errors.add(new ValidationError("home", "home town is required"));
    }
-  if (carousel == null || carousel.length() == 0) {
+  /*if (carousel == null || carousel.length() == 0) {
     errors.add(new ValidationError("carousel", "Carousel Url is required"));
-   }
+   }*/
   
   if (bioUrl == null || bioUrl.length() == 0) {
     errors.add(new ValidationError("bioUrl", "bio Url is required"));
@@ -102,12 +102,8 @@ public List<ValidationError> validate() {
   if (bio == null || bio.length() == 0) {
     errors.add(new ValidationError("bio", "bio is required"));
    }
-  if (slug == null || slug.length() == 0) {
+ if (slug == null || slug.length() == 0) {
     errors.add(new ValidationError("slug", "slug is required"));
-   }
-  
-  if (SurferDB.getSurfer(slug) != null) {
-    errors.add(new ValidationError("slug", "slug is already taken"));
    }
   if (!SurferTypes.isType(surfType)) {
     errors.add(new ValidationError("surfType", "Invalid surfer Type"));

@@ -39,26 +39,7 @@ public class Application extends Controller {
     
   }
   
-  /**
-   * Handles the posting of data.
-   * @return sadas.
-   */
-  public static Result postSurfer() {
-    Form<SurferFormData> formData = Form.form(SurferFormData.class).bindFromRequest();
-    
-    if (formData.hasErrors()) {
-      System.out.println("Errors");
-      Map<String, Boolean> surfTypeMap = SurferTypes.types();
-      return badRequest(ManageSurfer.render(formData, surfTypeMap, false, FootStyleTypes.getNameList()));
-    }
-    
-    else {
-    SurferFormData data = formData.get();
-    SurferDB.addSurfer(data);
-    Map<String, Boolean> telephoneTypeMap = SurferTypes.getTypes(data.surfType);
-        return ok(ShowSurfer.render(formData));
-    }
-  }
+  
   public static Result deleteSurfer(String slug) {
     SurferDB.deleteSurfer(slug);
     return ok(Index.render(""));
@@ -75,5 +56,23 @@ public class Application extends Controller {
     Form<SurferFormData> formData = Form.form(SurferFormData.class).fill(data);
     Map<String, Boolean> surferTypeMap = SurferTypes.getTypes(data.surfType);
     return ok(ManageSurfer.render(formData, surferTypeMap, true, FootStyleTypes.getNameList()));
+  }
+  /**
+   * Handles the posting of data.
+   * @return sadas.
+   */
+  public static Result postSurfer() {
+    Form<SurferFormData> formData = Form.form(SurferFormData.class).bindFromRequest();
+    
+    if (formData.hasErrors()) {
+      Map<String, Boolean> surfTypeMap = SurferTypes.types();
+      return badRequest(ManageSurfer.render(formData, surfTypeMap, false, FootStyleTypes.getNameList()));
+    }
+    
+    else {
+    SurferFormData data = formData.get();
+    SurferDB.addSurfer(data);
+        return ok(ShowSurfer.render(formData));
+    }
   }
 }

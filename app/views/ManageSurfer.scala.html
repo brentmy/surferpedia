@@ -1,4 +1,4 @@
-@(surferForm: Form[views.formdata.SurferFormData], surferTypeMap: Map[String, Boolean], disableSlug: Boolean, level : List[String])
+@(surferForm: Form[views.formdata.SurferFormData], surferTypeMap: Map[String, Boolean], ReadOnly: Boolean, level : List[String])
 
 @import helper._
 @import bootstrap3._
@@ -27,7 +27,7 @@
           buttonNameList = level,
           help = "")
     
-    @text(surferForm("carouselUrl"),
+    @text(surferForm("carousel"),
           label = "Carousel URL",
           placeholder = "http://pictures.com/picture.jpg",
           help = "A URL to a picture if the surfer.")
@@ -47,7 +47,7 @@
           label = "Slug",
           placeholder = "jakemarshall",
           help = "Used to identify the surfers in URLs; i.e. http://surferpedia.com/surfer/jakemarshall",
-          disabled = disableSlug)
+          readonly = ReadOnly)
           
     @bootstrap3.select(surferForm("surfType"),
             label = "Type",

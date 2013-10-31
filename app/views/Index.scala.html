@@ -3,7 +3,7 @@
   data-ride="carousel">
                 <!-- Indicators -->
                 <ol class="carousel-indicators">
-                        @for((surfer, index) <- SurferDB.getSurfers().view.zipWithIndex) {
+                        @for((surfer, index) <- SurferDB.getSurfers().zipWithIndex) {
                         <li data-target="#carousel-example-generic" data-slide-to="@index"
                                 @if(index== 0) {class="active"}></li>
                         }
@@ -11,7 +11,7 @@
 
                 <!-- Wrapper for slides -->
                 <div class="carousel-inner">
-                        @for((surfer, index) <-SurferDB.getSurfers().view.zipWithIndex) {
+                        @for((surfer, index) <-SurferDB.getSurfers().zipWithIndex) {
                         <div @if(index== 0) {class="item active" } else {class="item"}>
                                 <div class="carousel-image"
                                         style="background-image: url('@surfer.getCarouselUrl');"></div>
