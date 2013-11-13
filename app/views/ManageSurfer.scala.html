@@ -1,9 +1,9 @@
-@(surferForm: Form[views.formdata.SurferFormData], surferTypeMap: Map[String, Boolean], ReadOnly: Boolean, level : List[String])
+@(page: String, isLoggedIn: Boolean, userInfo: UserInfo, surferForm: Form[views.formdata.SurferFormData], surferTypeMap: Map[String, Boolean], ReadOnly: Boolean, level : List[String])
 
 @import helper._
 @import bootstrap3._
 
-@Main("managesurfer") {
+@Main(page, isLoggedIn, userInfo) {
 <div class="container">
   @form(routes.Application.postSurfer(), 'class -> "form-horizontal") {
   
@@ -62,4 +62,5 @@
     </div>
   }
 </div>
+
 }

@@ -1,4 +1,4 @@
-@(surferForm: Form[views.formdata.SurferFormData])
+@(isLoggedIn: Boolean, userInfo: UserInfo,surferForm: Form[views.formdata.SurferFormData])
 
 @import helper._
 
@@ -17,8 +17,9 @@
                         <p><b>Awards: </b>@surferForm("awards").value</p>
                         <p><b>Style: </b>@surferForm("footStyles").value</p>
                         <p><b>Biography: </b>@surferForm("bio").value</p>
+                        @if(isLoggedIn){
                         <a class="btn btn-xs" href="@routes.Application.manageSurfer(surferForm("slug").value)">Edit</a>
-                        <a class="btn btn-xs" href="@routes.Application.deleteSurfer(surferForm("slug").value)">Delete</a>
+                        <a class="btn btn-xs" href="@routes.Application.deleteSurfer(surferForm("slug").value)">Delete</a>}
                 </div>
         </div>
         }

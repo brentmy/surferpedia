@@ -1,4 +1,5 @@
 import models.SurferDB;
+import models.UserInfoDB;
 import play.Application;
 import play.GlobalSettings;
 import views.formdata.SurferFormData;
@@ -14,6 +15,7 @@ public class Global extends GlobalSettings {
 * @param app The application.
 */
   public void onStart(Application app) {
+    UserInfoDB.addUserInfo("Brent Yoshida", "brent@gmail.com", "password");
     String mick = "He was also victorious when he took a wild card entry at the Rip Curl Pro at Bells Beach in 2001 winning one of Australia's most acclaimed contests. He finished 2002 as rookie of the year winning the Billabong Pro at Jeffrey's Bay and"
                + "earning himself a slot on the 2002 tour as the World Qualifying Series' (WQS) Champion."
                + "He suffered a complete hamstring tear in 2004. He had to have it surgically repaired and made an incredible comeback to become one of the greatest surfers on the ASP world tour."
