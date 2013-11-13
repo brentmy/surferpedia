@@ -1,8 +1,8 @@
-@(isLoggedIn: Boolean, userInfo: UserInfo,surferForm: Form[views.formdata.SurferFormData])
+@(page: String, isLoggedIn: Boolean, userInfo: UserInfo,surferForm: Form[views.formdata.SurferFormData])
 
 @import helper._
 
-@Main("surferpage") {
+@Main(page, isLoggedIn, userInfo) {
 <div class="container">
         @form(routes.Application.postSurfer(), 'class -> "form-horizontal") {
         <div class="col-md-5">

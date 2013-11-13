@@ -4,7 +4,7 @@
 
 @Main(page, isLoggedIn, userInfo) {
    <div class="container">
-     @loginform(routes.Application.postLogin(), loginForm("email"), loginForm("password"))
+     @loginForm(routes.Application.postLogin(), loginForm("email"), loginForm("password"))
      
      @if(!models.UserInfoDB.adminExists()){
      <div class="alert alert-danger">Admin credentials have not been defined</div>

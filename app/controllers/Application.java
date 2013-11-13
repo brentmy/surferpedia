@@ -10,6 +10,7 @@ import play.data.Form;
 import play.mvc.Result;
 import views.html.Index;
 import views.html.ShowSurfer;
+import views.html.Login;
 import views.formdata.FootStyleTypes;
 import views.formdata.LoginFormData;
 import views.formdata.SurferFormData;
@@ -28,8 +29,7 @@ public class Application extends Controller {
    */
  
   public static Result index() {
-    return ok(Index.render("Home", Secured.isLoggedIn(ctx()), Secured.getUserInfo(ctx()),
-        SurferDB.getSurfers()));
+    return ok(Index.render(""));
   }
   
   /**
@@ -61,7 +61,7 @@ public class Application extends Controller {
     Boolean isLoggedIn = (user != null);
     SurferFormData data = new SurferFormData(SurferDB.getSurfer(slug));
     Form<SurferFormData> formData = Form.form(SurferFormData.class).fill(data);
-    return ok(ShowSurfer.render(Secured.isLoggedIn(ctx()), Secured.getUserInfo(ctx()),formData));
+    return ok(ShowSurfer.render("show",Secured.isLoggedIn(ctx()), Secured.getUserInfo(ctx()),formData));
   }
   
   public static Result manageSurfer(String slug) {
@@ -85,7 +85,7 @@ public class Application extends Controller {
     else {
     SurferFormData data = formData.get();
     SurferDB.addSurfer(data);
-        return ok(ShowSurfer.render(Secured.isLoggedIn(ctx()), Secured.getUserInfo(ctx()),formData));
+        return ok(ShowSurfer.render("show",Secured.isLoggedIn(ctx()), Secured.getUserInfo(ctx()),formData));
     }
   }
   /**
@@ -96,31 +96,8 @@ public class Application extends Controller {
     Form<LoginFormData> formData = Form.form(LoginFormData.class);
     return ok(Login.render("Login", Secured.isLoggedIn(ctx()), Secured.getUserInfo(ctx()), formData));
   }
-  /**
-   * Handles the posting of data.
-   * @return sadas.
-   */
-  @Security.Authenticated(Secured.class)
-  public static Result postContact() {
-    Form<ContactFormData> formData = Form.form(ContactFormData.class).bindFromRequest();
-    
-    if (formData.hasErrors()) {
-      System.out.println("Errors");
-      Map<String, Boolean> telephoneTypeMap = TelephoneType.types();
-      return badRequest(NewContact.render("New", Secured.isLoggedIn(ctx()), Secured.getUserInfo(ctx()), formData, 
-          telephoneTypeMap));
-    }
-    
-    else {
-      UserInfo user = UserInfoDB.getUser(request().username());
-      String email = user.getEmail();
-    ContactFormData data = formData.get();
-    ContactDB.addContact(email, data);
-    Map<String, Boolean> telephoneTypeMap = TelephoneType.getTypes(data.telephoneType);
-        return ok(NewContact.render("New", Secured.isLoggedIn(ctx()), Secured.getUserInfo(ctx()), formData, 
-            telephoneTypeMap));
-    }
-  }
+
+
   /**
    * Processes a login form submission from an unauthenticated user. 
    * First we bind the HTTP POST data to an instance of LoginFormData.
