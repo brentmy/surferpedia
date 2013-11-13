@@ -11,6 +11,7 @@ import play.mvc.Result;
 import views.html.Index;
 import views.html.ShowSurfer;
 import views.html.Login;
+import views.html.Profile;
 import views.formdata.FootStyleTypes;
 import views.formdata.LoginFormData;
 import views.formdata.SurferFormData;
@@ -29,7 +30,7 @@ public class Application extends Controller {
    */
  
   public static Result index() {
-    return ok(Index.render(""));
+    return ok(Index.render(Secured.isLoggedIn(ctx()), Secured.getUserInfo(ctx())));
   }
   
   /**
@@ -52,13 +53,10 @@ public class Application extends Controller {
   
   public static Result deleteSurfer(String slug) {
     SurferDB.deleteSurfer(slug);
-    return ok(Index.render(""));
+    return ok(Index.render(Secured.isLoggedIn(ctx()), Secured.getUserInfo(ctx())));
   }
   
   public static Result getSurfer(String slug) {
-    UserInfo user = UserInfoDB.getUser(request().username());
-    String email = user.getEmail();
-    Boolean isLoggedIn = (user != null);
     SurferFormData data = new SurferFormData(SurferDB.getSurfer(slug));
     Form<SurferFormData> formData = Form.form(SurferFormData.class).fill(data);
     return ok(ShowSurfer.render("show",Secured.isLoggedIn(ctx()), Secured.getUserInfo(ctx()),formData));
@@ -119,7 +117,7 @@ public class Application extends Controller {
       // email/password OK, so now we set the session variable and only go to authenticated pages.
       session().clear();
       session("email", formData.get().email);
-      return redirect(routes.Application.profile());
+      return redirect(routes.Application.index());
     }
   }
   
@@ -139,7 +137,7 @@ public class Application extends Controller {
    */
   @Security.Authenticated(Secured.class)
   public static Result profile() {
-    return ok(Profile.render("Profile", Secured.isLoggedIn(ctx()), Secured.getUserInfo(ctx())));
+    return ok(Index.render(Secured.isLoggedIn(ctx()), Secured.getUserInfo(ctx())));
   }
 }
 

@@ -3,7 +3,7 @@
 @import helper._
 @import bootstrap3._
 
-@Main(page, isLoggedIn, userInfo) {
+@Main("ManageSurfer", isLoggedIn, userInfo) {
 <div class="container">
   @form(routes.Application.postSurfer(), 'class -> "form-horizontal") {
   
